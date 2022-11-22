@@ -1,0 +1,17 @@
+{% include "header.html" %}
+
+    <div class="container-fluid row">
+      <a href="{{ url_for('add_task') }}">ADD NEW TASK!</a>
+    </div>
+    <div class="container-fluid row">
+      <h1>CURRENT TASKS</h1>
+      {% for task in all_tasks %}
+        <ul class="list-group">
+          <li class="list-group-item">
+            {{task.task_name}} --> Due Date: {{task.task_due_date}} <a href="{{url_for('delete_task', task_id=task.id)}}">CLICK TO COMPLETE!</a>
+          </li>
+      {% endfor %}
+        </ul>
+    </div>
+
+{% include "footer.html" %}
